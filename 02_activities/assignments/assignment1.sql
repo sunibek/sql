@@ -5,7 +5,7 @@
 
 --SELECT
 /* 1. Write a query that returns everything in the customer table. */
-SELECT COUNT(*) FROM customer; 
+SELECT * FROM customer; 
 
 
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
@@ -28,7 +28,7 @@ vendor_id,
 quantity, 
 cost_to_customer_per_qty
 FROM customer_purchases 
-WHERE customer_id IN (4,9); 
+WHERE product_id IN (4,9); 
 
 -- option 2
 
@@ -40,7 +40,7 @@ vendor_id,
 quantity, 
 cost_to_customer_per_qty
 FROM customer_purchases 
-WHERE customer_id = 4 OR customer_id = 9; 
+WHERE product_id = 4 OR product_id = 9; 
 
 /*2. Write a query that returns all customer purchases and a new calculated column 'price' (quantity * cost_to_customer_per_qty), 
 filtered by vendor IDs between 8 and 10 (inclusive) using either:
