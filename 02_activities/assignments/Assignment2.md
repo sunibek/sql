@@ -54,10 +54,15 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
-```
+Architecture One - Type 1
+The CUSTOMER_ADDRESS table is a dimension table that uses Slowly Changing Dimension (SCD) Type 1. 
+With this method when we have updates, the existing data gets overwritten with the new values. It means we don’t keep any history, we only store the most recent information. It works when full data load is submitted each time, so we can simply truncate the table and reload it during each load. 
+This method make the process easier to manage and keeps the table always up to date with the most recent data.
 
 ***
+Architecture Two - Type 2
+The CUSTOMER_ADDRESS table uses Slowly Changing Dimension (SCD) Type 2 which means that when a customer’s address changes, we don’t overwrite the old record. Instead we add a new record with the updated information and keep the old one. This way we can track changes over time and keep a full history. It can include fields such as Start/End dates, or Expired_flg column that show which record is current and which ones are historical. 
+Type 2 method is good for keeping track on changes when historical data is important for reporting or analysis.
 
 ## Section 2:
 You can start this section following *session 4*.
